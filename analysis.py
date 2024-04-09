@@ -47,9 +47,10 @@ print(swidth)
 #histograms
 iris['petal_length'].hist()
 plt.title('Petal Length')
-plt.show()
+#plt.show()
 plt.savefig('petal-length.png')
 
+'''
 iris['petal_width'].hist()
 plt.title('Petal Width')
 plt.show()
@@ -134,3 +135,5 @@ plt.plot(slen, plen, 'o',)
 
 plt.title('Petal Width vs Sepal Width')
 plt.show()
+
+'''
