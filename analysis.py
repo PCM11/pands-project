@@ -43,16 +43,18 @@ print(slen)
 swidth = iris['sepal_width'].to_numpy() # sepal width to array
 print(swidth)
 
+
 #histograms
-#iris['petal_length'].hist()
-#plt.title('Petal Length')
-#plt.show()
-#plt.savefig('petal-length.png')
+iris['petal_length'].hist()
+plt.title('Petal Length')
+plt.show()
+plt.savefig('petal-length.png')
 
 iris['petal_width'].hist()
 plt.title('Petal Width')
 plt.show()
 #plt.savefig('petal-width.png')
+
 
 iris['sepal_length'].hist()
 plt.title('Sepal Length')
@@ -63,6 +65,7 @@ iris['sepal_width'].hist()
 plt.title('Sepal Width')
 plt.show()
 #plt.savefig('sepal-width.png')
+
 
 # Petal length vs Petal width plot
 # List of colors and class labels
