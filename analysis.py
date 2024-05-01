@@ -1,12 +1,4 @@
-#1. Outputs a summary of each variable to a single text file. 
-#2. Saves a histogram of each variable to png files, and 
-#4. Perform any other analysis you think is appropriate
-
-# ref: https://realpython.com/pandas-python-explore-dataset/
-# ref: https://www.geeksforgeeks.org/python-basics-of-pandas-using-iris-dataset/
-# ref: https://www.pycodemates.com/2022/05/iris-dataset-classification-with-python.html?utm_content=cmp-true
-# ref: https://datagy.io/pandas-exploratory-data-analysis/
-# ref: https://www.hackersrealm.net/post/iris-dataset-analysis-using-python 
+# 
 
 # For data manipulation and analysis
 import pandas as pd
@@ -16,6 +8,8 @@ import matplotlib.pyplot as plt
 
 # For numerical arrays
 import numpy as np
+
+import seaborn as sns
 
 # Load the csv data into dataframe
 iris = pd.read_csv('https://raw.githubusercontent.com/mwaskom/seaborn-data/master/iris.csv')
@@ -50,7 +44,6 @@ plt.title('Petal Length')
 #plt.show()
 plt.savefig('petal-length.png')
 
-'''
 iris['petal_width'].hist()
 plt.title('Petal Width')
 plt.show()
@@ -67,13 +60,13 @@ plt.title('Sepal Width')
 plt.show()
 #plt.savefig('sepal-width.png')
 
-
 # Petal length vs Petal width plot
 # List of colors and class labels
 colors = ['red', 'orange', 'blue'] 
 species = ['Iris-setosa','Iris-versicolor','Iris-virginica']
 
-for i in range(3): # filter data on each class
+for i in range(3):
+    # filter data on each class
     x = iris[iris['species'] == species[i]]
 
     #Plot the scatter plot
@@ -135,5 +128,3 @@ plt.plot(slen, plen, 'o',)
 
 plt.title('Petal Width vs Sepal Width')
 plt.show()
-
-'''
