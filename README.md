@@ -1,4 +1,4 @@
-# Pands-projec
+# Pands-project
 
 ## Iris Dataset
 
@@ -7,7 +7,15 @@
 ## About this Project
 
 The Iris dataset is a commonly used dataset to understand classification and clustering algorithms in machine learning and statistics, made famous by Ronald Fisher.
-It cosists of 150 samples, 50 from each of the the 3 species (Iris setosa, Iris virginica, Iris versicolor). Each sample includes the measurements of sepal width, sepal length, petal width and petal length.
+
+It cosists of 150 samples, 50 from each of the the 3 species (Iris setosa, Iris virginica, Iris versicolor). Each sample consists of four features: sepal width, sepal length, petal width and petal length.
+
+These four features are all measured in centimeters:
+
+- Sepal Length: The length of the iris flower’s sepals (the green leaf-like structures that encase the flower bud).
+- Sepal Width: The width of the iris flower’s sepals.
+- Petal Length: The length of the iris flower’s petals (the colored structures of the flower).
+- Petal Width: The width of the iris flower’s petals.
 
 ## How to get started.
 
@@ -15,7 +23,14 @@ To further explore this dataset you need to download python, which can be instal
 
 ## Analysis
 
- I imported Python libraries to anlyse the data.
+ Imported Python libraries to anlyse the data.
+
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
+```
 
 - Pandas - for data manipulation and analysis. It allows us to investigate CSV files, amongst other features.
 
@@ -25,6 +40,21 @@ To further explore this dataset you need to download python, which can be instal
 
 - Numpy - to perform  wide variety of mathematical operations on arrays
 
+## Loading the CSV data into dataframe
+
+```python
+iris = pd.read_csv('https://raw.githubusercontent.com/mwaskom/seaborn-data/master/iris.csv')
+```
+
+```python
+
+print(iris) # displays the whole dataset
+print(iris.head()) # displays the 5 first rows from the dataframe
+print(iris.describe()) # diplays stats about the data
+print(iris.info()) # displays basic information about datatype
+print(iris['species'].value_counts())
+ # displays number of samples on each class
+```
 
 ## References
 
@@ -35,3 +65,4 @@ To further explore this dataset you need to download python, which can be instal
 5. https://www.hackersrealm.net/post/iris-dataset-analysis-using-python 
 6. https://en.wikipedia.org/wiki/Iris_flower_data_set
 7. https://www.geeksforgeeks.org/iris-dataset/
+8. https://stackoverflow.com/questions/9331281/how-can-i-test-what-my-readme-md-file-will-look-like-before-committing-to-github
