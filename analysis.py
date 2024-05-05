@@ -60,71 +60,27 @@ plt.title('Sepal Width')
 plt.show()
 #plt.savefig('sepal-width.png')
 
-# Petal length vs Petal width plot
-# List of colors and class labels
-colors = ['red', 'orange', 'blue'] 
-species = ['Iris-setosa','Iris-versicolor','Iris-virginica']
+#Petal length vs Sepal length plot
+sns.scatterplot(x = "sepal_length", y = "petal_length", data = iris, hue = "species")
+                
+#Title.
+plt.title(("Sepal length vs Petal length plot"), color = "red")
 
-for i in range(3):
-    # filter data on each class
-    x = iris[iris['species'] == species[i]]
+#Petal width vs Sepal width plot
+sns.scatterplot(x = "petal_width", y = "sepal_width", data = iris, hue = "species")
+                
+#Title.
+plt.title(("Petal width vs Sepal width plot"), color = "red")
 
-    #Plot the scatter plot
-    plt.scatter(x['petal_length'], x['petal_width'], c = colors[i], label = species[i])
+#Petal length vs Petal width plot
+sns.scatterplot(x = "petal_width", y = "petal_length", data = iris, hue = ("species"))
+                
+#Title.
+plt.title(("Petal length vs Petal width plot"), color = "red")
 
-#Labels for axes
-plt.xlabel('Petal Length (cm)')
-plt.ylabel('Petal Width (cm)')
-plt.legend()
-plt.plot(plen, pwidth, 'o')
+# Sepal length vs Sepal width plot
 
-plt.title('Petal Width vs Petal Length')
-plt.show()
-
-# Sepal length vs Sepal width plot.
-for i in range(3): # filter data on each class
-    x = iris[iris['species'] == species[i]]
-
-    #Plot the scatter plot
-    plt.scatter(x['sepal_length'], x['sepal_width'], c = colors[i], label = species[i])
-
-#Labels for axes
-plt.xlabel('Sepal Length (cm)')
-plt.ylabel('Sepal Width (cm)')
-plt.legend()
-plt.plot(slen, swidth, 'o',)
-
-plt.title('Sepal Width vs Sepal Length')
-plt.show()
-
-# Sepal length vs Petal length plot.
-for i in range(3): # filter data on each class
-    x = iris[iris['species'] == species[i]]
-
-    #Plot the scatter plot
-    plt.scatter(x['sepal_length'], x['petal_length'], c = colors[i], label = species[i])
-
-#Labels for axes
-plt.xlabel('Sepal Length (cm)')
-plt.ylabel('Petal Length (cm)')
-plt.legend()
-plt.plot(slen, plen, 'o',)
-
-plt.title('Petal Length vs Sepal Length')
-plt.show()
-
-# Petal Width vs Sepal Width plot.
-for i in range(3): # filter data on each class
-    x = iris[iris['species'] == species[i]]
-
-    #Plot the scatter plot
-    plt.scatter(x['sepal_width'], x['petal_width'], c = colors[i], label = species[i])
-
-#Labels for axes
-plt.xlabel('Sepal Width (cm)')
-plt.ylabel('Petal Width (cm)')
-plt.legend()
-plt.plot(slen, plen, 'o',)
-
-plt.title('Petal Width vs Sepal Width')
-plt.show()
+sns.scatterplot(x = "sepal_width", y = "sepal_length", data = iris, hue = "species")
+                
+#Title.
+plt.title(("Sepal length vs Sepal width plot"), color = "red")
