@@ -4,7 +4,7 @@
 
 ![Image](https://bennycheung.github.io/images/dempster-shafer-theory-for-classification/iris_petal_sepal.jpg)
 
-## About this Project
+## About the Project
 
 The Iris dataset is a commonly used dataset to understand classification and clustering algorithms in machine learning and statistics, made famous by Ronald Fisher.
 
@@ -46,15 +46,33 @@ import seaborn as sns
 iris = pd.read_csv('https://raw.githubusercontent.com/mwaskom/seaborn-data/master/iris.csv')
 ```
 
-```python
+## Read in the data
+The summary of the Iris data can be found in the  **iris_summary.txt** file
 
+```python
 print(iris) # displays the whole dataset
 print(iris.head()) # displays the 5 first rows from the dataframe
 print(iris.describe()) # diplays stats about the data
 print(iris.info()) # displays basic information about datatype
-print(iris['species'].value_counts())
- # displays number of samples on each class
+print(iris['species'].value_counts()) # displays number of samples on each class
 ```
+
+## Plots
+
+### Histograms
+
+![alt text](<Petal length.png>)
+![alt text](<Petal width.png>)
+
+### Scatterplots
+
+![alt text](<Petal length vs Petal width plot.png>)
+![alt text](<Sepal length vs Sepal width plot.png>)
+
+### Pairplot
+
+![alt text](<Iris dataset pairplot plt.png>)
+
 
 ## References
 

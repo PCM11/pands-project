@@ -14,6 +14,7 @@ import seaborn as sns
 # Load the csv data into dataframe
 iris = pd.read_csv('https://raw.githubusercontent.com/mwaskom/seaborn-data/master/iris.csv')
 
+# Read in data
 print(iris) # displays the whole dataset
 print(iris.head()) # displays the 5 first rows from the dataframe
 print(iris.describe()) # diplays stats about the data
@@ -37,18 +38,23 @@ print(slen)
 swidth = iris['sepal_width'].to_numpy() # sepal width to array
 print(swidth)
 
+# Histograms
 
-#histograms
-iris['petal_length'].hist()
-plt.title('Petal Length')
-#plt.show()
-plt.savefig('petal-length.png')
+# Petal length histogram
+#sns.histplot(x = "petal_length", data = iris, hue="species", multiple="stack")
+#plt.title("Petal Length", size=10, color="red")
+#plt.savefig("Petal length")
 
+# Petal width histogram
+sns.histplot(x = "petal_width", data = iris, hue="species", multiple="stack")
+plt.title("Petal Width", size=10, color="red")
+plt.savefig("Petal width")
+
+'''
 iris['petal_width'].hist()
 plt.title('Petal Width')
 plt.show()
 #plt.savefig('petal-width.png')
-
 
 iris['sepal_length'].hist()
 plt.title('Sepal Length')
@@ -60,27 +66,30 @@ plt.title('Sepal Width')
 plt.show()
 #plt.savefig('sepal-width.png')
 
+
+# Scatterplots
+
 #Petal length vs Sepal length plot
-sns.scatterplot(x = "sepal_length", y = "petal_length", data = iris, hue = "species")
-                
-#Title.
-plt.title(("Sepal length vs Petal length plot"), color = "red")
+sns.scatterplot(x = "sepal_length", y = "petal_length", data = iris, hue = "species")                
+plt.title(("Petal length vs Sepal length plot"), color = "red") # Title
+plt.savefig("Petal length vs Sepal length plot.png") # Save plot as png file
 
 #Petal width vs Sepal width plot
-sns.scatterplot(x = "petal_width", y = "sepal_width", data = iris, hue = "species")
-                
-#Title.
-plt.title(("Petal width vs Sepal width plot"), color = "red")
+sns.scatterplot(x = "sepal_width", y = "petal_width", data = iris, hue = "species")
+plt.title(("Petal width vs Sepal width plot"), color = "red") # Tile
+plt.savefig("Petal width vs Sepal width plot.png") # Save plot as png file.
 
 #Petal length vs Petal width plot
 sns.scatterplot(x = "petal_width", y = "petal_length", data = iris, hue = ("species"))
-                
-#Title.
-plt.title(("Petal length vs Petal width plot"), color = "red")
+plt.title(("Petal length vs Petal width plot"), color = "red") # Title
+plt.savefig("Petal length vs Petal width plot.png") # Save plot as png file
 
 # Sepal length vs Sepal width plot
-
 sns.scatterplot(x = "sepal_width", y = "sepal_length", data = iris, hue = "species")
-                
-#Title.
-plt.title(("Sepal length vs Sepal width plot"), color = "red")
+plt.title(("Sepal length vs Sepal width plot"), color = "red") # Title
+plt.savefig("Sepal length vs Sepal width plot.png") # Save plot as png file.
+
+# Pairplot
+sns.pairplot(iris, hue = "species", diag_kind="hist")
+plt.savefig("Iris dataset pairplot plt.png") # Save plot as png file.
+'''
