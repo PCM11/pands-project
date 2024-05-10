@@ -3,13 +3,17 @@
 # For data manipulation and analysis
 import pandas as pd
 
-# For data visualisation and graphical plotting
+# For plotting
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 # For numerical arrays
 import numpy as np
 
-import seaborn as sns
+# Warning package to ignore warning messages
+import warnings
+warnings.filterwarnings("ignore")
+
 
 # Load the csv data into dataframe
 iris = pd.read_csv('https://raw.githubusercontent.com/mwaskom/seaborn-data/master/iris.csv')
@@ -93,3 +97,14 @@ plt.savefig("Sepal length vs Sepal width plot.png") # Save plot as png file.
 sns.pairplot(iris, hue = "species", diag_kind="hist")
 plt.savefig("Iris dataset pairplot plt.png") # Save plot as png file.
 '''
+
+#Correlation coefficient to assess the relationship between variables.
+
+iris = iris.drop(["species"], axis = 1) #We must first drop the species column.
+iris.corr().round (2) # round up the values to two digits for easy reading
+
+# Let's plot the correlation matrix map.
+matrix = iris.corr().round (2)
+sns.heatmap(matrix, annot=True, vmax=1, vmin=-1, center=0,cmap='vlag' )
+plt.title("Correlation Matrix")
+plt.savefig("Correlation Matrix plt.png") # Save plot as png file.

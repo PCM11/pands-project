@@ -73,14 +73,38 @@ print(iris['species'].value_counts()) # displays number of samples on each class
 
 ![alt text](<Iris dataset pairplot plt.png>)
 
+### Correlation
+
+![alt text](<Correlation Matrix plt.png>)
+
 
 ## References
 
 1. https://realpython.com/pandas-python-explore-dataset/
+
 2. https://www.geeksforgeeks.org/python-basics-of-pandas-using-iris-dataset/
+
 3. https://www.pycodemates.com/2022/05/iris-dataset-classification-with-python.html?utm_content=cmp-true
+
 4. https://datagy.io/pandas-exploratory-data-analysis/
+
 5. https://www.hackersrealm.net/post/iris-dataset-analysis-using-python 
+
 6. https://en.wikipedia.org/wiki/Iris_flower_data_set
+
 7. https://www.geeksforgeeks.org/iris-dataset/
+
 8. https://stackoverflow.com/questions/9331281/how-can-i-test-what-my-readme-md-file-will-look-like-before-committing-to-github
+
+9. https://stackabuse.com/seaborn-scatter-plot-tutorial-and-examples/
+
+10. https://seaborn.pydata.org/generated/seaborn.scatterplot.html
+
+11. https://www.hackersrealm.net/post/iris-dataset-analysis-using-python
+
+12. https://datagy.io/seaborn-heatmap/
+
+13. https://datagy.io/python-seaborn/
+
+14. https://seaborn.pydata.org/tutorial/distributions.html
+
