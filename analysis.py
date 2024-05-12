@@ -21,10 +21,13 @@ iris = pd.read_csv('https://raw.githubusercontent.com/mwaskom/seaborn-data/maste
 # Read in data
 print(iris) # displays the whole dataset
 print(iris.head()) # displays the 5 first rows from the dataframe
-print(iris.describe()) # diplays stats about the data
-print(iris.info()) # displays basic information about datatype
-print(iris['species'].value_counts()) # displays number of samples on each class
+print(iris.dtypes) # check for column data type
+print(iris.describe()) # diplays statistics about the data
+print(iris.info()) # displays the type of columns and datatype
+print(iris['species'].value_counts()) # displays number of species on each class
+print(iris.isnull().sum()) # check for missing values
 
+'''
 # Petal Variable
 plen = iris['petal_length'] # to get the petal length
 plen = plen.to_numpy() # to get the numpy array
@@ -54,7 +57,7 @@ sns.histplot(x = "petal_width", data = iris, hue="species", multiple="stack")
 plt.title("Petal Width", size=10, color="red")
 plt.savefig("Petal width")
 
-'''
+
 iris['petal_width'].hist()
 plt.title('Petal Width')
 plt.show()
@@ -96,7 +99,7 @@ plt.savefig("Sepal length vs Sepal width plot.png") # Save plot as png file.
 # Pairplot
 sns.pairplot(iris, hue = "species", diag_kind="hist")
 plt.savefig("Iris dataset pairplot plt.png") # Save plot as png file.
-'''
+
 
 #Correlation coefficient to assess the relationship between variables.
 
@@ -105,6 +108,8 @@ iris.corr().round (2) # round up the values to two digits for easy reading
 
 # Let's plot the correlation matrix map.
 matrix = iris.corr().round (2)
-sns.heatmap(matrix, annot=True, vmax=1, vmin=-1, center=0,cmap='vlag' )
+sns.heatmap(matrix, annot=True, vmax=1, vmin=-1, center=0,cmap='vlag' ) #annot+True add numbers onto the squares
+
 plt.title("Correlation Matrix")
 plt.savefig("Correlation Matrix plt.png") # Save plot as png file.
+'''

@@ -6,9 +6,10 @@
 
 ## About the Project
 
-The Iris dataset is a commonly used dataset to understand classification and clustering algorithms in machine learning and statistics, made famous by Ronald Fisher.
+The Iris dataset is a commonly used dataset to understand classification and clustering algorithms in machine learning and statistics and it was made famous by Ronald Fisher.
 
-It cosists of 150 samples, 50 from each of the the 3 species (Iris setosa, Iris virginica, Iris versicolor). Each sample consists of four features: sepal width, sepal length, petal width and petal length.
+It cosists of 150 samples in total, 50 from each of the the 3 species (Iris setosa, Iris virginica, Iris versicolor).
+Each sample consists of four features: sepal width, sepal length, petal width and petal length.
 
 These four features are all measured in centimeters:
 
@@ -57,25 +58,59 @@ print(iris.info()) # displays basic information about datatype
 print(iris['species'].value_counts()) # displays number of samples on each class
 ```
 
-## Plots
+# Plots
 
-### Histograms
+## Histograms
 
 ![alt text](<Petal length.png>)
+
 ![alt text](<Petal width.png>)
 
-### Scatterplots
+## Scatterplots
 
 ![alt text](<Petal length vs Petal width plot.png>)
+
+The above plot shows that setosa species have smaller petal widths and lengths.
+The versicolor species lie in the middle of both species and the virginica species has the largest petal lengths and widths.
+
+
+
 ![alt text](<Sepal length vs Sepal width plot.png>)
 
-### Pairplot
+From the above plot we can see that setosa species has larger sepal widths but smaller sepal lengths.
+Virginica species has smaller sepal widths but larger sepal lengths and the versicolor species lies in the middle of both species.
+
+
+
+## Pairplot
+
+Pairplot is used for plotting pairwise relationships. It demonstrates the relationship between the variables within the columns. It can be used for multivariate analysis.
 
 ![alt text](<Iris dataset pairplot plt.png>)
 
-### Correlation
+## Correlation
+
+Correlation heat map demonstrates the correlations between the columns.
+It excludes the non numerical values and the missing values.
 
 ![alt text](<Correlation Matrix plt.png>)
+
+Petal length and petal width (r= 0.96)
+- high positive correlation, meaning the longer the length the wider the width.
+
+Sepal length and sepal width: Weak negative correlation (r = -0,12)
+- Weak correlation 
+
+Petal length and sepal length = 0.87
+ - have positive good correlations.
+
+Sepal length and Petal width = 0.82
+ - have good positive correlations.
+
+Sepal width and petal width =
+
+
+## Conclusion
 
 
 ## References
