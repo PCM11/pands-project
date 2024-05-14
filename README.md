@@ -20,7 +20,7 @@ These four features are all measured in centimeters:
 
 ## How to get started.
 
-To further explore this dataset you need to download python, which can be installed through [anaconda](https://www.anaconda.com/download),and notebook editor, which can be found in [Visual Studio Code](https://code.visualstudio.com/)
+To  explore this dataset you need to download python, which can be installed through [anaconda](https://www.anaconda.com/download),and notebook editor, which can be found in [Visual Studio Code](https://code.visualstudio.com/)
 
 ## Analysis
 
@@ -31,6 +31,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
+import warnings
+warnings.filterwarnings("ignore")
 ```
 
 - Pandas - for data manipulation and analysis. It allows us to investigate CSV files, amongst other features.
@@ -90,24 +92,15 @@ Pairplot is used for plotting pairwise relationships. It demonstrates the relati
 
 ## Correlation
 
-Correlation heat map demonstrates the correlations between the columns.
-It excludes the non numerical values and the missing values.
+Correlation analysis shows the linear relationship between numerical features. Thease relationships help with feature selection and predictive modelling.
 
 ![alt text](<Correlation Matrix plt.png>)
 
-Petal length and petal width (r= 0.96)
-- high positive correlation, meaning the longer the length the wider the width.
+**Sepal length** has a strong positive correlation with the **Petal length** and **Petal width**, suggesting that longer sepals are associated with wider and longer petals.
 
-Sepal length and sepal width: Weak negative correlation (r = -0,12)
-- Weak correlation 
+**Sepal width** shows a poor negative correlation with all other features, suggesting the wider or longer they are, the narrower the sepal width is.
 
-Petal length and sepal length = 0.87
- - have positive good correlations.
-
-Sepal length and Petal width = 0.82
- - have good positive correlations.
-
-Sepal width and petal width =
+**Petal length** and **Petal width** have a very strong correlation, indicating that longer petals are generally also wider.
 
 
 ## Conclusion
@@ -142,4 +135,6 @@ Sepal width and petal width =
 13. https://datagy.io/python-seaborn/
 
 14. https://seaborn.pydata.org/tutorial/distributions.html
+
+15. https://matplotlib.org/stable/users/explain/colors/colormaps.html
 

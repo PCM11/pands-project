@@ -20,9 +20,11 @@ iris = pd.read_csv('https://raw.githubusercontent.com/mwaskom/seaborn-data/maste
 
 # Read in data
 print(iris) # displays the whole dataset
+
 print(iris.head()) # displays the 5 first rows from the dataframe
 print(iris.dtypes) # check for column data type
 print(iris.describe()) # diplays statistics about the data
+
 print(iris.info()) # displays the type of columns and datatype
 print(iris['species'].value_counts()) # displays number of species on each class
 print(iris.isnull().sum()) # check for missing values
@@ -99,7 +101,7 @@ plt.savefig("Sepal length vs Sepal width plot.png") # Save plot as png file.
 # Pairplot
 sns.pairplot(iris, hue = "species", diag_kind="hist")
 plt.savefig("Iris dataset pairplot plt.png") # Save plot as png file.
-
+'''
 
 #Correlation coefficient to assess the relationship between variables.
 
@@ -107,9 +109,7 @@ iris = iris.drop(["species"], axis = 1) #We must first drop the species column.
 iris.corr().round (2) # round up the values to two digits for easy reading
 
 # Let's plot the correlation matrix map.
-matrix = iris.corr().round (2)
-sns.heatmap(matrix, annot=True, vmax=1, vmin=-1, center=0,cmap='vlag' ) #annot+True add numbers onto the squares
-
+matrix = iris.corr()
+sns.heatmap(matrix, annot=True, cmap='coolwarm', fmt=".2f")
 plt.title("Correlation Matrix")
 plt.savefig("Correlation Matrix plt.png") # Save plot as png file.
-'''
