@@ -6,21 +6,25 @@
 
 ## About the Project
 
-The Iris dataset is a commonly used dataset to understand classification and clustering algorithms in machine learning and statistics and it was made famous by Ronald Fisher.
+This project is about Iris dataset, also known as Fisher's Iris dataset. It is a commonly used dataset to understand classification and clustering algorithms in machine learning and statistics.
+The data was collected by Dr. Edgar Anderson and made famous by a biologist and statistitian Ronald Fisher. 
 
-It cosists of 150 samples in total, 50 from each of the the 3 species (Iris setosa, Iris virginica, Iris versicolor).
-Each sample consists of four features: sepal width, sepal length, petal width and petal length.
+It consists of 150 samples of iris flowers, 50 from each of the the 3 species:
 
-These four features are all measured in centimeters:
+- Iris setosa
+- Iris virginica
+- Iris versicolor
 
-- Sepal Length: The length of the iris flower’s sepals (the green leaf-like structures that encase the flower bud).
-- Sepal Width: The width of the iris flower’s sepals.
-- Petal Length: The length of the iris flower’s petals (the colored structures of the flower).
-- Petal Width: The width of the iris flower’s petals.
+Each sample contains four features that are measured in centimeters:
+
+- Sepal Length
+- Sepal Width
+- Petal Length
+- Petal Width
 
 ## How to get started.
 
-To  explore this dataset you need to download python, which can be installed through [anaconda](https://www.anaconda.com/download),and notebook editor, which can be found in [Visual Studio Code](https://code.visualstudio.com/)
+To  explore this dataset you need to download python, which can be installed through [anaconda](https://www.anaconda.com/download), and a notebook editor such as Jupiter notebooks, which can be found in [Visual Studio Code](https://code.visualstudio.com/).
 
 ## Analysis
 
@@ -37,38 +41,109 @@ warnings.filterwarnings("ignore")
 
 - Pandas - for data manipulation and analysis. It allows us to investigate CSV files, amongst other features.
 
-- Matplotlib - for data visualisation and graphical plotting
+- Matplotlib - for data visualisation and graphical plotting.
 
-- Seaborn - built on top of matplotlib with similar functionalities
+- Seaborn - complements matplotlib and offers a simpler way to plot charts.
 
-- Numpy - to perform  wide variety of mathematical operations on arrays
+- Numpy - to perform  wide variety of mathematical operations on arrays.
+
+- Warnings - Warning package to ignore warning messages.
+
+- Sys - provides various functions and variables that are used to manipulate Python runtime environment. We use stdout module to send the codes' output into the 'summary text file'.
+
 
 ## Loading the CSV data into dataframe
 
+ pd.read reads in the dataset and store it as a Dataframe object in the variable **iris**.
+
 ```python
+
 iris = pd.read_csv('https://raw.githubusercontent.com/mwaskom/seaborn-data/master/iris.csv')
+
 ```
 
-## Read in the data
-The summary of the Iris data can be found in the  **iris_summary.txt** file
+## Data Display
+
+The summary of the Iris data can be found in the  **summary.txt** file
 
 ```python
-print(iris) # displays the whole dataset
-print(iris.head()) # displays the 5 first rows from the dataframe
-print(iris.describe()) # diplays stats about the data
-print(iris.info()) # displays basic information about datatype
-print(iris['species'].value_counts()) # displays number of samples on each class
+
+# To display the whole dataset
+print(iris) 
+
+# To look at the first 5 rows of the dataframe
+print(iris.head()) 
+
+# To display all the columns and their data types.
+print(iris.info()) 
+
+# To show some basic descriptive statistics for all numeric columns
+print(iris.describe())
+
+# To show the number of samples per class.
+print(iris['species'].value_counts())
+
+# For data cleaning, check for some missing values
+print(iris.isnull().sum())
+
+# For correlation we only need numerical values, so we drop the 'species' column
+iris = iris.drop(["species"], axis = 1)
+
+#To round up the values to two digits for easy reading.
+ print(iris.corr().round (2))
+
 ```
 
 # Plots
 
 ## Histograms
 
+Histograms are visualisation tools that represent the distribution of variables by counting the number of observation that fall within discrete bins.
+
+Using *histplot()* function we can plot histograms for Petal length and width, and sepal length and width.
+
+```python
+
+# Petal length histogram
+sns.histplot(x = "petal_length", data = iris, hue="species", multiple="stack")
+
+# Petal width histogram
+sns.histplot(x = "petal_width", data = iris, hue="species", multiple="stack")
+
+#Sepal length histogram
+sns.histplot(x = "sepal_length", data = iris, hue="species", multiple="stack")
+
+# Sepal width histogram
+sns.histplot(x = "sepal_width", data = iris, hue="species", multiple="stack")
+
+```
+
 ![alt text](<Petal length.png>)
 
 ![alt text](<Petal width.png>)
 
+![alt text](<Sepal length.png>)
+
+![alt text](<Sepal width.png>)
+
 ## Scatterplots
+
+Scatterplots demonstrate the linear relationship between all four variables.
+
+```python
+#Petal length vs Sepal length plot
+sns.scatterplot(x = "sepal_length", y = "petal_length", data = iris, hue = "species")
+
+#Petal width vs Sepal width plot
+sns.scatterplot(x = "sepal_width", y = "petal_width", data = iris, hue = "species")
+
+#Petal length vs Petal width plot
+sns.scatterplot(x = "petal_width", y = "petal_length", data = iris, hue = ("species"))
+
+# Sepal length vs Sepal width plot
+sns.scatterplot(x = "sepal_width", y = "sepal_length", data = iris, hue = "species")
+
+```
 
 ![alt text](<Petal length vs Petal width plot.png>)
 
@@ -82,17 +157,32 @@ The versicolor species lie in the middle of both species and the virginica speci
 From the above plot we can see that setosa species has larger sepal widths but smaller sepal lengths.
 Virginica species has smaller sepal widths but larger sepal lengths and the versicolor species lies in the middle of both species.
 
-
-
 ## Pairplot
 
-Pairplot is used for plotting pairwise relationships. It demonstrates the relationship between the variables within the columns. It can be used for multivariate analysis.
+Pairplot is used for plotting pairwise relationships between the variables within the columns. It can be used for multivariate analysis.
+
+```python
+# Pairplot
+sns.pairplot(iris, hue = "species", diag_kind="hist")
+
+```
 
 ![alt text](<Iris dataset pairplot plt.png>)
 
 ## Correlation
 
-Correlation analysis shows the linear relationship between numerical features. Thease relationships help with feature selection and predictive modelling.
+Correlation analysis shows the linear relationship between numerical features. These relationships help with feature selection and predictive modelling.
+
+```python
+
+iris = iris.drop(["species"], axis = 1) # We must first drop the species column.
+iris.corr().round (2) # round up the values to two digits for easy reading
+
+# Let's plot the correlation matrix map.
+matrix = iris.corr()
+sns.heatmap(matrix, annot=True, cmap='coolwarm', fmt=".2f")
+
+```
 
 ![alt text](<Correlation Matrix plt.png>)
 
@@ -102,6 +192,12 @@ Correlation analysis shows the linear relationship between numerical features. T
 
 **Petal length** and **Petal width** have a very strong correlation, indicating that longer petals are generally also wider.
 
+## Additional Information
+
+**Journal Article**
+
+The Iris Data Set: In Search of the Source of Virginica
+https://academic.oup.com/jrssig/article/18/6/26/7038520?login=false
 
 ## Conclusion
 
@@ -137,4 +233,8 @@ Correlation analysis shows the linear relationship between numerical features. T
 14. https://seaborn.pydata.org/tutorial/distributions.html
 
 15. https://matplotlib.org/stable/users/explain/colors/colormaps.html
+
+16. https://www.askpython.com/python/python-stdin-stdout-stderr
+
+17. https://seaborn.pydata.org/generated/seaborn.histplot.html
 
