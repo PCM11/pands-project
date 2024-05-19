@@ -12,20 +12,23 @@ import numpy as np
 
 # sys.stdout displays output directly into the text file.
 import sys
+import csv
 
 # Warning package to ignore warning messages
 import warnings
 warnings.filterwarnings("ignore")
 
-
+with open ('irisdata.csv', 'w') as csvfile:
 # Load the csv data into dataframe
+
 iris = pd.read_csv('https://raw.githubusercontent.com/mwaskom/seaborn-data/master/iris.csv')
 
 with open ('summary .txt', 'w') as output_file:
     sys.stdout = output_file
 
     print(iris) # displays the whole dataset
-    print(iris.head()) # displays the 5 first rows from the dataframe
+    print(iris.head()) # automatically displays the 5 first rows from the dataframe
+    print(iris.head(12)) # adding anumber in brackets will specify the number of rows you want printed
 
     print(iris.dtypes) # check for column data type
     print(iris.describe()) # diplays statistics about the data
@@ -34,10 +37,10 @@ with open ('summary .txt', 'w') as output_file:
     print(iris['species'].value_counts()) # displays number of species on each class
     print(iris.isnull().sum()) # check for missing values
 
-    #iris = iris.drop(["species"], axis = 1) #We must first drop the species column.
-    #print(iris.corr().round (2)) # round up the values to two digits for easy reading
+    iris = iris.drop(["species"], axis = 1) #We must first drop the species column.
+    print(iris.corr().round (2)) # round up the values to two digits for easy reading
 
-
+'''
 # Petal Variable
     plen = iris['petal_length'] # to get the petal length
     plen = plen.to_numpy() # to get the numpy array
@@ -113,3 +116,4 @@ matrix = iris.corr()
 sns.heatmap(matrix, annot=True, cmap='coolwarm', fmt=".2f")
 plt.title("Correlation Matrix")
 plt.savefig("Correlation Matrix plt.png") # Save plot as png file.
+'''

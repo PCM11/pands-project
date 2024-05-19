@@ -1,6 +1,36 @@
 # Pands-project
 
+## Table of Contents
+
+[1. Iris Dataset](#iris-dataset)
+
+[2. About the Project](#about-the-project)
+
+[3. How to get started](#how-to-get-started)
+
+[4. Analysis](#analysis)
+
+[5. Loading Data](#loading-data)
+
+[6. Data Display](#data-display)
+
+[7. Plots](#plots)
+
+- [7.1 Histograms](#histograms)
+
+- [7.2 Scatterplots](#scatterplots)
+
+- [7.3 Pairplot](#pairplot)
+
+[8. Correlation](#correlation)
+
+[9. Conclusion](#conclusion)
+
+[10. References](#references)
+
 ## Iris Dataset
+
+This dataset is available for more exploration on [Github](https://raw.githubusercontent.com/mwaskom/seaborn-data/master/iris.csv) and [UCI machine Learning Repository](https://archive.ics.uci.edu/dataset/53/iris)
 
 ![Image](https://bennycheung.github.io/images/dempster-shafer-theory-for-classification/iris_petal_sepal.jpg)
 
@@ -9,7 +39,7 @@
 This project is about Iris dataset, also known as Fisher's Iris dataset. It is a commonly used dataset to understand classification and clustering algorithms in machine learning and statistics.
 The data was collected by Dr. Edgar Anderson and made famous by a biologist and statistitian Ronald Fisher. 
 
-It consists of 150 samples of iris flowers, 50 from each of the the 3 species:
+It consists of 150 samples of iris flowers, 50 from each of the 3 species:
 
 - Iris setosa
 - Iris virginica
@@ -36,6 +66,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
 import warnings
+import sys
 warnings.filterwarnings("ignore")
 ```
 
@@ -47,14 +78,13 @@ warnings.filterwarnings("ignore")
 
 - Numpy - to perform  wide variety of mathematical operations on arrays.
 
-- Warnings - Warning package to ignore warning messages.
+- Sys - provides various functions and variables that are used to manipulate Python runtime environment. We use stdout module to send the codes' output onto the 'summary text file'.
 
-- Sys - provides various functions and variables that are used to manipulate Python runtime environment. We use stdout module to send the codes' output into the 'summary text file'.
+- Warnings (filterwarnings("ignore")) - Warning package to ignore warnings ( gives clean result).
 
+## Loading Data
 
-## Loading the CSV data into dataframe
-
- pd.read reads in the dataset and store it as a Dataframe object in the variable **iris**.
+ **pd.read_csv** reads in the dataset and store it as a Dataframe object in the variable **iris**.
 
 ```python
 
@@ -145,6 +175,10 @@ sns.scatterplot(x = "sepal_width", y = "sepal_length", data = iris, hue = "speci
 
 ```
 
+![alt text](<Petal length vs Sepal length plot.png>)
+
+![alt text](<Petal width vs Sepal width plot.png>)
+
 ![alt text](<Petal length vs Petal width plot.png>)
 
 The above plot shows that setosa species have smaller petal widths and lengths.
@@ -175,7 +209,9 @@ Correlation analysis shows the linear relationship between numerical features. T
 
 ```python
 
-iris = iris.drop(["species"], axis = 1) # We must first drop the species column.
+# We can only use numerical values to calculate correlation efficient.
+
+iris = iris.drop(["species"], axis = 1) # We first drop the species column.
 iris.corr().round (2) # round up the values to two digits for easy reading
 
 # Let's plot the correlation matrix map.
@@ -188,16 +224,10 @@ sns.heatmap(matrix, annot=True, cmap='coolwarm', fmt=".2f")
 
 **Sepal length** has a strong positive correlation with the **Petal length** and **Petal width**, suggesting that longer sepals are associated with wider and longer petals.
 
-**Sepal width** shows a poor negative correlation with all other features, suggesting the wider or longer they are, the narrower the sepal width is.
+**Sepal width** shows a poor negative correlation with all other features (sepal length, petal length and petal width), suggesting the wider or longer they are, the narrower the sepal width is.
 
 **Petal length** and **Petal width** have a very strong correlation, indicating that longer petals are generally also wider.
 
-## Additional Information
-
-**Journal Article**
-
-The Iris Data Set: In Search of the Source of Virginica
-https://academic.oup.com/jrssig/article/18/6/26/7038520?login=false
 
 ## Conclusion
 
@@ -224,7 +254,7 @@ https://academic.oup.com/jrssig/article/18/6/26/7038520?login=false
 
 10. https://seaborn.pydata.org/generated/seaborn.scatterplot.html
 
-11. https://www.hackersrealm.net/post/iris-dataset-analysis-using-python
+11. 
 
 12. https://datagy.io/seaborn-heatmap/
 
@@ -238,3 +268,6 @@ https://academic.oup.com/jrssig/article/18/6/26/7038520?login=false
 
 17. https://seaborn.pydata.org/generated/seaborn.histplot.html
 
+18. https://www.markdownguide.org/basic-syntax/
+
+19. https://stackoverflow.com/questions/11948245/markdown-to-create-pages-and-table-of-contents
