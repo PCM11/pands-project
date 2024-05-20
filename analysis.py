@@ -18,16 +18,15 @@ import csv
 import warnings
 warnings.filterwarnings("ignore")
 
-with open ('irisdata.csv', 'w') as csvfile:
-# Load the csv data into dataframe
 
+# Load the csv data into dataframe
 iris = pd.read_csv('https://raw.githubusercontent.com/mwaskom/seaborn-data/master/iris.csv')
 
 with open ('summary .txt', 'w') as output_file:
     sys.stdout = output_file
 
     print(iris) # displays the whole dataset
-    print(iris.head()) # automatically displays the 5 first rows from the dataframe
+    print(iris.head()) # automatically displays the first 5 rows from the dataframe
     print(iris.head(12)) # adding anumber in brackets will specify the number of rows you want printed
 
     print(iris.dtypes) # check for column data type
@@ -40,7 +39,7 @@ with open ('summary .txt', 'w') as output_file:
     iris = iris.drop(["species"], axis = 1) #We must first drop the species column.
     print(iris.corr().round (2)) # round up the values to two digits for easy reading
 
-'''
+
 # Petal Variable
     plen = iris['petal_length'] # to get the petal length
     plen = plen.to_numpy() # to get the numpy array
@@ -66,17 +65,17 @@ sns.histplot(x = "petal_length", data = iris, hue="species", multiple="stack")
 plt.savefig("Petal length")
 
 # Petal width histogram
-#sns.histplot(x = "petal_width", data = iris, hue="species", multiple="stack")
-#plt.savefig("Petal width")
+sns.histplot(x = "petal_width", data = iris, hue="species", multiple="stack")
+plt.savefig("Petal width")
 
 #Sepal length histogram
-#sns.histplot(x = "sepal_length", data = iris, hue="species", multiple="stack")
-#plt.savefig("Sepal length")
+sns.histplot(x = "sepal_length", data = iris, hue="species", multiple="stack")
+plt.savefig("Sepal length")
 
 
 # Sepal width histogram
-#sns.histplot(x = "sepal_width", data = iris, hue="species", multiple="stack")
-#plt.savefig("Sepal width")
+sns.histplot(x = "sepal_width", data = iris, hue="species", multiple="stack")
+plt.savefig("Sepal width")
 
 
 # Scatterplots
@@ -112,8 +111,8 @@ iris = iris.drop(["species"], axis = 1) # We must first drop the species column.
 iris.corr().round (2) # round up the values to two digits for easy reading
 
 # Let's plot the correlation matrix map.
+
 matrix = iris.corr()
 sns.heatmap(matrix, annot=True, cmap='coolwarm', fmt=".2f")
 plt.title("Correlation Matrix")
 plt.savefig("Correlation Matrix plt.png") # Save plot as png file.
-'''
