@@ -28,7 +28,7 @@
 
 [10. References](#references)
 
-## Iris Dataset
+## IRIS Dataset
 
 This dataset is available for more exploration on [Github](https://raw.githubusercontent.com/mwaskom/seaborn-data/master/iris.csv) and [UCI machine Learning Repository](https://archive.ics.uci.edu/dataset/53/iris)
 
@@ -130,7 +130,10 @@ iris = iris.drop(["species"], axis = 1)
 
 Histograms are visualisation tools that represent the distribution of variables by counting the number of observation that fall within discrete bins.
 
-Using *histplot()* function we can plot histograms for Petal length and width, and sepal length and width.
+
+
+
+We use *histplot()* function to plot histograms for Petal length and width, and sepal length and width.
 
 ```python
 
@@ -177,19 +180,31 @@ sns.scatterplot(x = "sepal_width", y = "sepal_length", data = iris, hue = "speci
 
 ![alt text](<Petal length vs Sepal length plot.png>)
 
+The setosas have shorter petal and sepal lengths,
+versicolors remain in the middle of both species while virginica has the longest petal and sepal lengths.
+
+_________________________________________________
+
 ![alt text](<Petal width vs Sepal width plot.png>)
+
+The setosas have wider sepal widtgs but narrower petal widths.
+The versicolors lie in the middle with average bothe sepal width and petal width, while the virginica has the largest petal widths and average to large sepal widths.
+
+_________________________________________________
 
 ![alt text](<Petal length vs Petal width plot.png>)
 
-The above plot shows that setosa species have smaller petal widths and lengths.
+The setosa species have smaller petal widths and lengths.
 The versicolor species lie in the middle of both species and the virginica species has the largest petal lengths and widths.
 
-
+_________________________________________________
 
 ![alt text](<Sepal length vs Sepal width plot.png>)
 
-From the above plot we can see that setosa species has larger sepal widths but smaller sepal lengths.
+The setosa species has larger sepal widths but shorter sepal lengths.
 Virginica species has smaller sepal widths but larger sepal lengths and the versicolor species lies in the middle of both species.
+
+_________________________________________________
 
 ## Pairplot
 
@@ -230,6 +245,10 @@ sns.heatmap(matrix, annot=True, cmap='coolwarm', fmt=".2f")
 
 
 ## Conclusion
+
+When looking at all the graphical demonstrations, setosas seem to be easily distinguishable because of their small features.
+The features of virginica and versicolor have more or less same dimensions making it harder to
+distinguish from each other.
 
 
 ## References
